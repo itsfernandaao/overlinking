@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'SignUp', type: :feature do
+RSpec.feature 'Visitor signs up', type: :feature do
   scenario 'from home' do
     visit root_path
 
@@ -23,8 +23,8 @@ RSpec.feature 'SignUp', type: :feature do
     expect(User.last.email).to eq('test@test.com')
   end
 
-  scenario 'with existing user' do
-    create(:user, email: 'test@test.com', password: '123456')
+  scenario 'with already used email' do
+    create(:user)
     visit root_path
     click_on 'cadastrar'
 

@@ -1,4 +1,9 @@
 <nav>
-  <%= link_to 'entrar', '#' %>
-  <%= link_to 'cadastrar', new_user_registration_path %>
+  <% if user_signed_in? %>
+    <%= link_to 'feed', feed_path %>
+    <%= link_to 'sair', destroy_user_session_path, method: :delete %>
+  <% else %>
+    <%= link_to 'entrar', feed_path %>
+    <%= link_to 'cadastrar', new_user_registration_path %>
+  <% end %>
 </nav>
