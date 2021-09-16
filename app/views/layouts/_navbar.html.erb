@@ -1,6 +1,7 @@
 <nav>
   <% if user_signed_in? %>
     <%= link_to 'feed', feed_path %>
+    <%= link_to 'overlinks', trails_path %>
     <%= link_to 'sair', destroy_user_session_path, method: :delete %>
   <% else %>
     <%= link_to 'entrar', feed_path %>

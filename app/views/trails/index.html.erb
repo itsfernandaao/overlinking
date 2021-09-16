@@ -1,0 +1,9 @@
+<% if @trails %>
+  <ul>
+    <% @trails.each do |trail| %>
+      <li><%= trail.name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Para iniciar, adicione uma trilha</p>
+<% end %>
