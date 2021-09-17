@@ -1,0 +1,12 @@
+<% if @trail.errors %>
+  <ul>
+    <% @trail.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_with model: @trail do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.submit btn_label %>
+<% end %>

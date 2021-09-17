@@ -12,7 +12,9 @@
 
   <body>
     <%= render 'layouts/navbar' %>
-
+    <% if controller.controller_name == 'trails' %>
+      <%= render 'layouts/submenu' %>
+    <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
