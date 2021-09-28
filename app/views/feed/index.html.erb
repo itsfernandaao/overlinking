@@ -2,7 +2,7 @@
   <ul>
     <% @trails.each do |trail| %>
       <li>
-        <strong><%= trail.name %></strong><small><i><%= " (#{trail.user.email})" %></i></small>   
+        <strong><%= trail.name %></strong><small><i><%= " (#{trail.user.name})" %></i></small>   
       </li>
       <% if trail.overlinks %>
         <ul>

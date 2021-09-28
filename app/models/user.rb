@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :trails
+
+  def name
+    email.split('@')[0]
+  end
 end
