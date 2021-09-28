@@ -11,6 +11,9 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <%= current_user.email %>
+    <% end %>
     <%= render 'layouts/navbar' %>
     <% if controller.controller_name == 'trails' %>
       <%= render 'layouts/submenu' %>

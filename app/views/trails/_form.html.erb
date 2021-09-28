@@ -6,7 +6,7 @@
   </ul>
 <% end %>
 <%= form_with model: @trail do |form| %>
-  <%= form.label :name %>
+  <%= form.label :name, 'trilha: ' %>
   <%= form.text_field :name %>
   <%= form.submit btn_label %>
 <% end %>

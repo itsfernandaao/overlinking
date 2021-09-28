@@ -17,7 +17,7 @@ RSpec.feature 'User adds trail', type: :feature do
     visit trails_path
     click_on '[+]trilha'
 
-    fill_in 'trilha', with: 'trilha 1'
+    fill_in 'trilha:', with: 'trilha 1'
     click_on 'criar'
 
     expect(page).to have_current_path(trails_path)
@@ -32,7 +32,7 @@ RSpec.feature 'User adds trail', type: :feature do
     visit trails_path
     click_on '[+]trilha'
 
-    fill_in 'trilha', with: 'trilha 1'
+    fill_in 'trilha:', with: 'trilha 1'
     click_on 'criar'
 
     expect(page).to have_current_path(new_trail_path)

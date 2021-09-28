@@ -1,0 +1,19 @@
+<% if @overlink.errors %>
+  <ul>
+    <% @overlink.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_with model: [@trail, @overlink] do |form| %>
+  <%= form.label :title, 'título: ' %>
+  <%= form.text_field :title %>
+
+  <%= form.label :url, 'url: '%>
+  <%= form.text_field :url %>
+
+  <%= form.label :description, 'descrição: ' %>
+  <%= form.text_area :description %>
+
+  <%= form.submit btn_label %>
+<% end %>

@@ -1,7 +1,22 @@
 <% if @trails %>
   <ul>
     <% @trails.each do |trail| %>
-      <li><%= trail.name %></li>
+      <li>
+        <% if trail.public %>
+          <small><small><%= link_to '(make private)', trail_private_path(trail), method: :patch %></small></small>
+        <% else %>
+          <small><small><%= link_to '(make public)', trail_public_path(trail), method: :patch %></small></small>
+        <% end %>
+        <strong><%= "#{trail.name} " %></strong>
+        <%= link_to '[+]', new_trail_overlink_path(trail) %>       
+      </li>
+      <% if trail.overlinks %>
+        <ul>
+          <% trail.overlinks.each do |overlink| %>
+            <li><%= link_to overlink.title, overlink.url, target: '_blank' %><small><i><%= " - #{overlink.description}" %></small></i></li>
+          <% end %>
+        </ul>
+      <% end %>
     <% end %>
   </ul>
 <% else %>

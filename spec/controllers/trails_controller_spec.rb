@@ -53,7 +53,7 @@ RSpec.describe TrailsController, type: :request do
       sign_in user
       params = { trail: { name: 'trilha 1'} }
 
-      post 'trails/create', params: params
+      post '/trails', params: params
 
       expect(response).to redirect_to(trails_path)
       expect(Trails.count).to eq(1)
@@ -64,7 +64,7 @@ RSpec.describe TrailsController, type: :request do
       user = create(:user)
       sign_in user
 
-      post 'trails/create'
+      post '/trails'
 
       expect(response).to redirect_to(new_trail_path)
       expect(Trails.count).to eq(0)
@@ -75,7 +75,7 @@ RSpec.describe TrailsController, type: :request do
       sign_in user
       params = { trail: { name: nil } }
 
-      post 'trails/create', params: params
+      post '/trails', params: params
 
       expect(response).to redirect_to(new_trail_path)
       expect(Trails.count).to eq(0)
@@ -86,7 +86,7 @@ RSpec.describe TrailsController, type: :request do
       sign_in user
       params = { trail: { name: '' } }
 
-      post 'trails/create', params: params
+      post '/trails', params: params
 
       expect(response).to redirect_to(new_trail_path)
       expect(Trails.count).to eq(0)
@@ -95,7 +95,7 @@ RSpec.describe TrailsController, type: :request do
     it 'without authentication' do
       params = { trail: { name: 'trilha 1'} }
 
-      post 'trails/create', params: params
+      post '/trails', params: params
 
       expect(response).to redirect_to(new_user_session_path)
       expect(Trails.count).to eq(0)
